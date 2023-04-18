@@ -4,6 +4,7 @@ function Meme() {
     const [meme, setMeme] = useState({
         textTop: 'That feeling when your mom',
         textBottom: 'some text ...',
+        color: '#b5eef2',
         randomImage: 'https://i.imgflip.com/30b1gx.jpg',
     });
 
@@ -49,14 +50,25 @@ function Meme() {
                     value={meme.textBottom}
                     onChange={handleInputChange}
                 />
+                <input
+                    className="main__input input-color"
+                    type="color"
+                    name="color"
+                    value={meme.color}
+                    onChange={handleInputChange}
+                />
                 <button className="main__btn" type="button" onClick={getMemeImage}>
                     Get a new meme image 🖼
                 </button>
             </form>
             <div className="meme">
                 <img alt="" src={meme.randomImage} className="meme__image" />
-                <h2 className="meme__text top">{meme.textTop}</h2>
-                <h2 className="meme__text bottom">{meme.textBottom}</h2>
+                <h2 className="meme__text top" style={{ color: meme.color }}>
+                    {meme.textTop}
+                </h2>
+                <h2 className="meme__text bottom" style={{ color: meme.color }}>
+                    {meme.textBottom}
+                </h2>
             </div>
         </main>
     );
